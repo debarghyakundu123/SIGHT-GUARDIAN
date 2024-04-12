@@ -1,0 +1,40 @@
+import subprocess
+import time
+import sys
+
+# Add your Ngrok auth token
+ngrok_auth_token = ""
+
+# Specify the full path to the Ngrok executable
+ngrok_path =  r"C:\Users\Debarghya Kundu\Desktop\dream project\video calling applications\ngrok.exe"
+
+
+# Function to start Ngrok and get the forwarding URL
+def start_ngrok():
+    # Authenticate Ngrok
+    subprocess.run([ngrok_path, "authtoken", ngrok_auth_token], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    
+    # Start Ngrok tunnel on port 5500
+    ngrok_process = subprocess.Popen([ngrok_path, "http", "5500"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    
+    # Wait for a few seconds for Ngrok to start
+    time.sleep(5)
+    
+    # Read Ngrok output to obtain the forwarding URL
+    ngrok_url = None
+    for line in ngrok_process.stdout:
+        decoded_line = line.decode().strip()
+        if "Forwarding" in decoded_line:
+            ngrok_url = decoded_line.split(" ")[-1]
+            break
+    
+    # Return the Ngrok URL
+    return ngrok_url
+
+# Start Ngrok and print the URL if successful
+ngrok_url = start_ngrok()
+if ngrok_url:
+    print(f"Ngrok URL: {ngrok_url}")
+else:
+    print("Failed to start Ngrok or retrieve URL.")
+    sys.exit(1)
