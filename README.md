@@ -30,4 +30,6 @@ Services Offered by Sight Guardian
 ![image](https://github.com/debarghyakundu123/allinone-for-blind-/assets/129304569/591feb4c-b362-4306-84bf-3085c3cf7493)
 
 These features collectively aim to address the challenges faced by blind individuals, making their daily navigation and interaction with the world more seamless and intuitive.
-![Uploading image.png…]()
+![image](https://github.com/debarghyakundu123/allinone-for-blind-/assets/129304569/68d213a5-b59e-4909-b616-151215ecca1d)
+
+
